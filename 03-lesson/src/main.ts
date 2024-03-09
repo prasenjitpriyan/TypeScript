@@ -1,31 +1,89 @@
-let username = "Prasenjit";
-console.log(username);
+// -- Array --------------------------------
+let stringArray = ['one', 'two', 'three']
+let guitars = ['Start', 'Les Paul', 1987]
+let mixedData = ['EVH', 1984, true]
 
-let a: number = 12
-let b: number = 6
-let c: number = 2
+stringArray[0] = 'Prasenjit'
+stringArray.push('hey')
 
-console.log(a / b);
-console.log(c * b)
+guitars[0] = 1984
+guitars.unshift('Prasenjit')
 
-let myName: string = "Prasenjit";
-let meaningOfLife: number;
-let isLoading: boolean;
+guitars = stringArray
+mixedData = guitars
 
-// -- any types
-let album: any;
+// -- Any type of Array
+let test = []
+let bands: string[] = []
+bands.push('prasenjit')
 
-// -- Union types
-let albums: string | number | bigint | boolean;
+// -- Tuple
+let myTuple: [string, number, boolean] = ['Prasenjit', 36, true]
+let mixed = ['Priyan', 38, false]
 
-// -- Regular expressions
-let re: RegExp = /\w+/g
+mixed = myTuple
+// -- myTuple = mixed
 
-myName = "Priyan";
-meaningOfLife = 42;
-isLoading = true;
-album = 1987
+myTuple[1] = 37
 
-const sum = (a: number, b: number) => {
-  return a + b;
+
+// -- Object ----------------------------------------------------
+let myObject: object;
+myObject = []
+console.log(typeof myObject);
+
+myObject = bands
+myObject = {}
+
+const exampleObject = {
+  name: 'Prasenjit',
+  age: 36,
+  isAvailable: true,
 }
+
+exampleObject.age = 40
+
+// type Guitarist = {
+//   name: string;
+//   active?: boolean,
+//   albums: (string | number)[]
+// }
+
+//type can declare with interface
+
+interface Guitarist {
+  name: string;
+  active?: boolean,
+  albums: (string | number)[]
+}
+
+let evh: Guitarist = {
+  name: 'Prasenjit',
+  active: false,
+  albums: [1984, 5150, 'OU812']
+}
+let jp: Guitarist = {
+  name: 'Priyan',
+  albums: [1984, 5150, 'OU812']
+}
+
+//evh = jp
+
+const greetGuitarist = (guitarist: Guitarist) => {
+  return `Hello ${guitarist.name}!`
+}
+
+console.log(greetGuitarist(jp));
+
+// -- Enums ----------------------------------------------
+//"Unlike most TypeScript features, Enums are not a type-level addition to JavaScript but something added to the language and runtime."
+
+enum Grade {
+  U = 1,
+  D,
+  C,
+  B,
+  A,
+}
+
+console.log(Grade.U);
