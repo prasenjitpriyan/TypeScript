@@ -22,3 +22,7 @@ album = 1987;
 const sum = (a, b) => {
     return a + b;
 };
+const circle = (diameter) => {
+    return diameter * Math.PI;
+};
+console.log(circle(7.5));
